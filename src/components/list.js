@@ -12,13 +12,16 @@ class List extends Component {
       brochure: [
         {
           title: "08:15",
-          msg: "16:00"
+          afleveret:"08:15",
+          afhentet: "16:00"
         }, {
           title: "08:15",
-          msg: "16:00"
+          afleveret:"08:15",
+          afhentet: "16:00"
         }, {
-          title: "8:15",
-          msg: "16:00"
+          title: "08:15",
+          afleveret:"08:15",
+          afhentet: "16:00"
         }
       ]
     }
@@ -45,10 +48,10 @@ class List extends Component {
 
   render() {  
     if(this.state.brochure.length > 0) {
-
     
     const brochure = this.state.brochure.map((item, index) => {
       return (
+
         <tr key={index}>
         
           <h1>{item.title}</h1>
@@ -86,8 +89,10 @@ class List extends Component {
                             <h3>15-06-2019</h3>
                             <p>Fælles afslutning for førskolebørnene. Denne dag skal vi huske, at glemme madpakken.</p>
                         </div>
-                    </div>
+                        <hr></hr>
+                    </div>                    
                 </article>
+                
 
                 <article>
                     <div class="col-lg-12">
