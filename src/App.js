@@ -7,17 +7,19 @@ import List from "./components/list.js";
 //import 'bootstrap/dist/js/bootstrap.min.js';
 // Styles
 //import 'bootstrap/dist/css/bootstrap.min.css';
-
 import './App.css';
-import './style3.css';
-import './header.js';
+
+import HeaderInclude from './header.js';
 
 class App extends Component {
   render() {
     return (
+     
       <div>
+        
         <List/>
       </div>
+     
     );
   }
 }

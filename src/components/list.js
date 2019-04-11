@@ -43,18 +43,22 @@ class List extends Component {
     this.setState({ brochure: tempBrochure });
   }
 
-  render() {    
+  render() {  
+    if(this.state.brochure.length > 0) {
+
+    
     const brochure = this.state.brochure.map((item, index) => {
       return (
         <tr key={index}>
-        <th>Afleveret</th>
-          <td>{item.title}</td>
-          <td>{item.msg}</td>
-          <td>
+        
+          <h1>{item.title}</h1>
+          <h2>{item.msg}</h2>
+          <p>{item.msg}</p>
+          
             <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
               onClick={() => this.replaceModalItem(index)}>edit</button> {" "}
             <button className="btn btn-danger" onClick={() => this.deleteItem(index)}>remove</button>
-          </td>
+          
         </tr>
       )
     });
@@ -64,17 +68,11 @@ class List extends Component {
     return (
      <React.Fragment>
     <div class="wrapper">
-         Sidebar  
-        
-
-       
+             
         <div id="content">
             <button type="button" id="sidebarCollapse" class="btn main-background btn-toggle">
                 <i class="fas fa-align-left"></i>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-align-justify"></i>
-            </button>
+            </button>          
 
             <div class="container">
                 <div class="col-lg-12">
@@ -94,9 +92,8 @@ class List extends Component {
                 <article>
                     <div class="col-lg-12">
                         <div class="card">
-                            <h1>Påske</h1>
-                            <h3>05-04-2019</h3>
-                            <p>Vi klippe/klistrer påsketing og snakker om påsken</p>
+                            {brochure}
+                            
                         </div>
                     </div>
                 </article>
@@ -132,6 +129,10 @@ class List extends Component {
       </React.Fragment>
     );
   }
+  {
+    <h1>INGEN DATA</h1>
+  }
 }
+} 
 
 export default List;
