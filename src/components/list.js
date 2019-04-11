@@ -62,6 +62,58 @@ class List extends Component {
     const requiredItem = this.state.requiredItem;
     let modalData = this.state.brochure[requiredItem];
     return (
+     <React.Fragment>
+    <div class="wrapper">
+         Sidebar  
+        
+
+       
+        <div id="content">
+            <button type="button" id="sidebarCollapse" class="btn main-background btn-toggle">
+                <i class="fas fa-align-left"></i>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-align-justify"></i>
+            </button>
+
+            <div class="container">
+                <div class="col-lg-12">
+                    <h1>News</h1>
+                </div>
+
+                <article>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <h1>Afslutning</h1>
+                            <h3>15-06-2019</h3>
+                            <p>Fælles afslutning for førskolebørnene. Denne dag skal vi huske, at glemme madpakken.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <h1>Påske</h1>
+                            <h3>05-04-2019</h3>
+                            <p>Vi klippe/klistrer påsketing og snakker om påsken</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <h1>Fastelavn</h1>
+                            <h3>03-03-2019</h3>
+                            <p>Vi bager fastelavnsboller og laver fastelavnsris. Vi klæder os ud (også de voksne) og slår katten af tønden.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
       <div>
         <div style={{ textAlign: "center" }}>
           <h1>Calendar</h1>
@@ -77,6 +129,7 @@ class List extends Component {
           saveModalDetails={this.saveModalDetails}
         />
       </div>
+      </React.Fragment>
     );
   }
 }
