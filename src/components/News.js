@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from './modal.js';
 
-class List extends Component {
+class News extends Component {
   constructor(props) {
     super(props);
 
@@ -93,15 +93,7 @@ class List extends Component {
                     </div>                    
                 </article>
                 
-
-                <article>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            {brochure}
-                            
-                        </div>
-                    </div>
-                </article>
+               
 
                 <article>
                     <div class="col-lg-12">
@@ -117,14 +109,8 @@ class List extends Component {
     </div>
     <div class="overlay"></div>
       <div>
-        <div style={{ textAlign: "center" }}>
-          <h1>Calendar</h1>
-        </div>
-        <table className="table table-striped">
-          <tbody>
-            {brochure}
-          </tbody>
-        </table>
+        
+        
         <Modal
           title={modalData.title}
           msg={modalData.msg}
@@ -140,4 +126,4 @@ class List extends Component {
 }
 } 
 
-export default List;
+export default News;

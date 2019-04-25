@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from "./components/list.js";
+import News from "./components/News.js";
 
 // Scripts
 //import 'jquery/dist/jquery.min.js';
@@ -17,7 +17,7 @@ class App extends Component {
      
       <div>
         
-        <List/>
+        <News/>
       </div>
      
     );
