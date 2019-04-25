@@ -24,29 +24,27 @@ class App extends Component {
   }
   render() {
     return (
-     <Router>
-       <React.Fragment>
-        <Switch>
-          <Route exact path={"/"}
+      <Router>
+        <React.Fragment>
+          <Switch>
+            <Route exact path={"/"}
 
-          render = {(props) =>
-          <div id="Frontpage_btn">
-             <a href="/News"><button className ="btn btn-primary center-block"> News </button></a>
-             <a href="/Calendar"><button className = "btn btn-primary center-block"> Calendar </button></a>
-          </div>}
-          />
-            <Route exact path={"/News"}
-            render={(props) =>
-            <React.Fragment>
-              <News {...props}/>
-            </React.Fragment> }
-   
+              render={(props) =>
+
+                <div id="front-wrapper">
+                  <h1>Kindergarten App</h1>
+                  <img src="~/imageslogo.jpg" alt="Kindergarten Logo" />
+                  <button className="btn btn-primary center-block"> News </button>
+                  <button className="btn btn-primary center-block"> Calendar </button>
+                </div>
+              }
             />
             <Route exact path={"/News"}
               render={(props) =>
                 <React.Fragment>
                   <News {...props} />
                 </React.Fragment>}
+
             />
 
             <Route exact path={"/Calendar"}
