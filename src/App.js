@@ -24,39 +24,23 @@ class App extends Component {
   }
   render() {
     return (
-<<<<<<< HEAD
      <Router>
        <React.Fragment>
         <Switch>
           <Route exact path={"/"}
-          
-          render = {(props) => 
+
+          render = {(props) =>
           <div id="Frontpage_btn">
              <button className ="btn btn-primary center-block"> News </button>
              <button className = "btn btn-primary center-block"> Calendar </button>
-          </div>}         
+          </div>}
           />
-            <Route exact path={"/News"} 
+            <Route exact path={"/News"}
             render={(props) =>
             <React.Fragment>
               <News {...props}/>
             </React.Fragment> }
-=======
-      <Router>
-        <React.Fragment>
-          <Switch>
-            <Route exact path={"/"}
-
-              render={(props) =>
-                <div className="row">
-                  <div className="form-group">
-                    <div className="d-flex justify-content-center">
-                      <a href="/News"> <button className="btn btn-primary center-block">  News </button></a>
-                      <br></br>
-                      <a href="/Calendar"> <button className="btn btn-primary center-block"> Calendar </button> </a>
-                    </div>
-                  </div>
-                </div>}
+   
             />
             <Route exact path={"/News"}
               render={(props) =>
@@ -70,7 +54,7 @@ class App extends Component {
                 <React.Fragment>
                   <Calendar {...props} />
                 </React.Fragment>}
->>>>>>> 81ab12edd25bab08210f1bb90fea460abbfd710b
+
             />
           </Switch>
         </React.Fragment>
