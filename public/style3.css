@@ -5,8 +5,9 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
-    background: #fafafa;
+    background: lightblue;
 }
+
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -219,16 +220,30 @@ a.article:hover {
     margin-bottom: 5px;
 }
 
-#Frontpage_btn  {
+
+ /* --------------- FRONTPAGE --------------- */
+
+
+ #front-wrapper {
+    background: lightblue;
     height: 200px;
-    width: 100px;
+    width: 30%;
     position:absolute;
     top: 50%;
-    left: 50%;
+    left: 40%;
     margin-top: -100px;
     margin-left: -50px;
 }
 
-#Frontpage_btn button {
-    width: 100%;
+#front-wrapper h1 {
+    margin-top: 2%;  
+    color:whitesmoke;
+    background: lightblue;
+    text-align:center;
 }
+
+#front-wrapper button {
+width: 100%;
+margin-top: 1%;
+}
+

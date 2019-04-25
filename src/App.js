@@ -30,10 +30,13 @@ class App extends Component {
           <Route exact path={"/"}
 
           render = {(props) =>
-          <div id="Frontpage_btn">
+          <div id="front-wrapper">
+           <h1>Kindergarten App</h1>
              <button className ="btn btn-primary center-block"> News </button>
              <button className = "btn btn-primary center-block"> Calendar </button>
-          </div>}
+          </div>      
+          }
+          
           />
             <Route exact path={"/News"}
             render={(props) =>
