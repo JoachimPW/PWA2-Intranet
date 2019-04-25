@@ -11,15 +11,17 @@ export default class Calendar extends Component {
             requiredItem: 0,
             brochure: [
                 {
-                    title: "08:15",
+                    dato: "Mandag d. 3. juni",
                     afleveret: "08:15",
                     afhentet: "16:00"
-                }, {
-                    title: "08:15",
+                },
+                {
+                    dato: "Tirsdag d. 4. juni",
                     afleveret: "08:15",
                     afhentet: "16:00"
-                }, {
-                    title: "08:15",
+                },
+                 {
+                    dato: "Onsdag d. 5. juni",
                     afleveret: "08:15",
                     afhentet: "16:00"
                 }
@@ -51,37 +53,56 @@ export default class Calendar extends Component {
         if (this.state.brochure.length > 0) {
 
             const brochure = this.state.brochure.map((item, index) => {
-              return (
-      
-                <tr key={index}>
-      
-                  <h1>{item.title}</h1>
-                  <h2>{item.msg}</h2>
-                  <p>{item.msg}</p>
-      
-                  <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                    onClick={() => this.replaceModalItem(index)}>edit</button> {" "}
-                  <button className="btn btn-danger" onClick={() => this.deleteItem(index)}>remove</button>
-      
-                </tr>
-              )
+                return (
+                    <article>
+                        <div key={index} class="col-lg-12">
+                            <div class="card">
+                                <h1 style={{textAlign: "center"}}>{item.dato}</h1>
+                                <h2>Aflevere:  {item.afleveret}</h2>
+                                <h2>Afhent: {item.afhentet}</h2>
+                                <div class="col-lg-4">
+                                    <button className="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                        onClick={() => this.replaceModalItem(index)}>edit</button> {" "}                                    
+                                </div>
+                            </div>
+                            <hr></hr>
+                        </div>
+                    </article>
+
+                )
             });
-      
+
             const requiredItem = this.state.requiredItem;
             let modalData = this.state.brochure[requiredItem];
-        return (
-            <React.Fragment>
-            <div class="overlay"></div>
-            <div>   
-    
-              <Modal
-                title={modalData.title}
-                msg={modalData.msg}
-                saveModalDetails={this.saveModalDetails}
-              />
-            </div>
-            </React.Fragment>
-        )
+            return (
+                <div class="wrapper">
+                    <div id="content">
+                        <button type="button" id="sidebarCollapse" class="btn main-background btn-toggle">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+
+                        <div class="container">
+                            <div class="col-lg-12">
+                                <h1>Calendar</h1>
+                            </div>
+                            {brochure}
+                            <React.Fragment>
+
+                                <div className="overlay"></div>
+                                <div>
+                                    <Modal
+                                        dato={modalData.dato}
+                                        afleveret={modalData.afleveret}
+                                        afhentet={modalData.afhentet}
+                                        saveModalDetails={this.saveModalDetails}
+                                    />
+                                </div>
+                            </React.Fragment>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+        return <h1>INGEN DATA</h1>
     }
-}
 }

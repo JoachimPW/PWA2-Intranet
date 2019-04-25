@@ -31,8 +31,8 @@ class App extends Component {
 
           render = {(props) =>
           <div id="Frontpage_btn">
-             <button className ="btn btn-primary center-block"> News </button>
-             <button className = "btn btn-primary center-block"> Calendar </button>
+             <a href="/News"><button className ="btn btn-primary center-block"> News </button></a>
+             <a href="/Calendar"><button className = "btn btn-primary center-block"> Calendar </button></a>
           </div>}
           />
             <Route exact path={"/News"}

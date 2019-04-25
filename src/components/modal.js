@@ -5,24 +5,26 @@ class Modal extends Component {
         super(props);
         this.handleSave = this.handleSave.bind(this);
         this.state = {
-            title: '',
-            msg: '',
+            dato: '',
+            afleveret: '',
+            afhentet: ''
         }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            title: nextProps.title,
-            msg: nextProps.msg,
+            dato: nextProps.dato,
+            afleveret: nextProps.afleveret,
+            afhentet: nextProps.afhentet
         });
     }
 
-    titleHandler(e) {
-        this.setState({ title: e.target.value });
+    afleveretHandler(e) {
+        this.setState({ afleveret: e.target.value });
     }
 
-    msgHandler(e) {
-        this.setState({ msg: e.target.value });
+    afhentetHandler(e) {
+        this.setState({ afhentet: e.target.value });
     }
 
     handleSave() {
@@ -36,18 +38,18 @@ class Modal extends Component {
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Edit Jewel</h5>
+                            <h5 className="modal-title" id="exampleModalLabel">Rediger tider</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div className="modal-body" style={{textAlign: "center"}}>
-                            <p><span>Sat af: </span><input type="time" value={this.state.title} onChange={(e) => this.titleHandler(e)} /></p>
-                            <p><span>Afhent: </span><input type="time" value={this.state.msg} onChange={(e) => this.msgHandler(e)} /></p>
+                            <p><span>Afleveret: </span><input type="time" value={this.state.afleveret} onChange={(e) => this.afleveretHandler(e)} /></p>
+                            <p><span>Afhent: </span><input type="time" value={this.state.afhentet} onChange={(e) => this.afhentetHandler(e)} /></p>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => { this.handleSave() }}>Save changes</button>
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Luk</button>
+                            <button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => { this.handleSave() }}>Gem ændringer</button>
                         </div>
                     </div>
                 </div>
