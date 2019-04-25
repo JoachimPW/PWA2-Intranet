@@ -32,6 +32,7 @@ class App extends Component {
           render = {(props) =>
           <div id="front-wrapper">
            <h1>Kindergarten App</h1>
+           <img src="images\logo.jpg" alt="Kindergarten Logo" />
              <button className ="btn btn-primary center-block"> News </button>
              <button className = "btn btn-primary center-block"> Calendar </button>
           </div>      
