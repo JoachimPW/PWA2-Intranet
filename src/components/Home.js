@@ -26,8 +26,13 @@ export default class Home extends Component {
                     token: token,
                     uid: FIREBASE_AUTH.currentUser.uid
                 })
+                // https://books.google.dk/books?id=iJpVDwAAQBAJ&pg=PA188&lpg=PA188&dq=store+gettoken+firebase&source=bl&ots=neRSwbhZ0q&sig=ACfU3U2fd38KQnlbXHz1RNZGZmOZ2KzQWQ&hl=da&sa=X&ved=2ahUKEwj9p8rFkoLiAhUHx4sKHUg4DEEQ6AEwB3oECAgQAQ#v=onepage&q=store%20gettoken%20firebase&f=false
                 // https://developers.google.com/instance-id/reference/server
+                // https://medium.freecodecamp.org/how-to-add-push-notifications-to-a-web-app-with-firebase-528a702e13e1
                 // https://firebase.google.com/docs/cloud-messaging/js/send-multiple
+                // https://www.youtube.com/watch?v=rumJsnHbXsI&t=289s
+                // https://github.com/invertase/react-native-firebase-docs/blob/master/docs/messaging/topics.md
+                // https://www.techotopia.com/index.php/Sending_Firebase_Cloud_Messages_from_a_Node.js_Server
                 fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/all`, {
                     method:"POST",
                     headers: {
