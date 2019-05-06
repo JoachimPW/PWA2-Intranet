@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import News from "./components/News.js";
 import Calendar from "./components/Calendar.js"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import Login from './components/Login.js'
+import Home from './components/Home.js'
 
 // Scripts
 //import 'jquery/dist/jquery.min.js';
@@ -10,6 +12,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // Styles
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import fire from './config/Fire.js';
 
 
 
@@ -19,12 +22,38 @@ class App extends Component {
     super(props);
     this.state = {
       HomeButtonNews: <button> NEWS </button>,
-      HomeButtonCalendar: <button> Calendar </button>
+      HomeButtonCalendar: <button> Calendar </button>,
+      user:{}
     }
+    
   }
+
+ 
+
+  componentDidMount(){
+    this.authListener();
+  }
+
+  authListener() {
+    fire.auth().onAuthStateChanged((user) => {
+      console.log(user);
+      if(user) {
+        this.setState({user});
+        localStorage.setItem('user', user.uid);
+      } else {
+        this.setState({user:null})
+      }
+    })
+  }
+
+
   render() {
+   
     return (
-      <Router>
+      <React.Fragment>
+    {this.state.user ? (<Home />) : (<Login/>)}
+      </React.Fragment>
+      /*<Router>
         <React.Fragment>
           <Switch>
             <Route exact path={"/"}
@@ -56,7 +85,7 @@ class App extends Component {
             />
           </Switch>
         </React.Fragment>
-      </Router>
+      </Router> */
     );
   }
 }
