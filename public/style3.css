@@ -5,7 +5,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
-    background: lightblue;
+    background: #DCDCDC;
 }
 
 
@@ -225,7 +225,7 @@ a.article:hover {
 
 
  #front-wrapper {
-    background: lightblue;
+    background: #DCDCDC;
     height: 200px;
     width: 30%;
     position:absolute;
@@ -238,7 +238,7 @@ a.article:hover {
 #front-wrapper h1 {
     margin-top: 2%;  
     color:whitesmoke;
-    background: lightblue;
+    background: #DCDCDC;
     text-align:center;
 }
 

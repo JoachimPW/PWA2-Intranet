@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 // Styles
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+require('dotenv').config()
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
     }
   }
   render() {
+    console.log("Api key:" + process.env.REACT_APP_GOOGLE_API_KEY)
     return (
       <Router>
         <React.Fragment>
@@ -34,8 +36,8 @@ class App extends Component {
                 <div id="front-wrapper">
                   <h1>Kindergarten App</h1>
                   <img src="~/imageslogo.jpg" alt="Kindergarten Logo" />
-                  <button className="btn btn-primary center-block"> News </button>
-                  <button className="btn btn-primary center-block"> Calendar </button>
+                  <a href="/news" ><button className="btn btn-primary center-block"> News </button></a>
+                  <a href="/calendar"><button className="btn btn-primary center-block"> Calendar </button></a>
                 </div>
               }
             />
