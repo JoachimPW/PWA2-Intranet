@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import News from "./News.js";
+import Calendar from "./Calendar.js"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import fire from '../config/Fire';
 
@@ -13,7 +14,6 @@ export default class Home extends Component {
         this.subscribeToNotification = this.subscribeToNotification.bind(this);
         this.handleTokenRefresh = this.handleTokenRefresh.bind(this);
         this.subscribeToNotification = this.subscribeToNotification.bind(this);
-
     }
 
     handleTokenRefresh() {
@@ -21,7 +21,7 @@ export default class Home extends Component {
         const FIREBASE_AUTH = fire.auth();
         const FIREBASE_DATABASE = fire.database();
         return FIREBASE_MESSAGEING.getToken()
-            .then((token) => {              
+            .then((token) => {
                 FIREBASE_DATABASE.ref("/tokens").push({
                     token: token,
                     uid: FIREBASE_AUTH.currentUser.uid
@@ -33,51 +33,81 @@ export default class Home extends Component {
                 // https://www.youtube.com/watch?v=rumJsnHbXsI&t=289s
                 // https://github.com/invertase/react-native-firebase-docs/blob/master/docs/messaging/topics.md
                 // https://www.techotopia.com/index.php/Sending_Firebase_Cloud_Messages_from_a_Node.js_Server
-                fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/all`, {
-                    method:"POST",
+                fetch(`https://iid.googleapis.com/iid/v1/${token}/rel/topics/news`, {
+                    method: "POST",
                     headers: {
                         "Content-type": "application/json; charset=UTF-8",
                         "Authorization": "key=AAAAYdglyA8:APA91bF90DY96O2M_iPWR58f-ZW2mCpM4j86QcMUlJrDrCbZhq6zWUSTVz3rOSKr0L5Wou-sOwFRkaOZJs3sCXM7LIWWPmfNxquBm7tX9BnnNcZIxqkOCggToQUtdMGzROh69_4htV55"
                     }
                 }).then((console.log("Succes")))
                 console.log(token)
-            })          
+            })
     }
 
     subscribeToNotification() {
         const FIREBASE_MESSAGEING = fire.messaging();
-        FIREBASE_MESSAGEING.requestPermission()    
+        FIREBASE_MESSAGEING.requestPermission()
             .then(() => this.handleTokenRefresh())
             .catch(() => console.log("User didn't give permission"));
-      
     }
 
     unsubscribeToNotifcation() {
         fire.messaging().getToken()
-        .then((token) => fire.messaging().deleteToken(token))
-        .then(() => fire.database().ref("/tokens").orderByChild("uid").equalTo(fire.auth().currentUser.uid)
-        .once("value"))
-        .then((snapshot) => {
-            console.log(snapshot.val());
-            const key = Object.keys(snapshot.val() ) [0];
-            return fire.database().ref("/tokens").child(key).remove();
-            
-        })        
-    }  
+            .then((token) => fire.messaging().deleteToken(token))
+            .then(() => fire.database().ref("/tokens").orderByChild("uid").equalTo(fire.auth().currentUser.uid)
+                .once("value"))
+            .then((snapshot) => {
+                console.log(snapshot.val());
+                const key = Object.keys(snapshot.val())[0];
+                return fire.database().ref("/tokens").child(key).remove();
+            })
+    }
 
     logout() {
         fire.auth().signOut();
     }
     render() {
         return (
-            <div>
-                <h1>You are home!</h1>
-                <h3>Logged in as:{this.state.userEmail}</h3>
-                <button onClick={this.logout}>Logout</button>
-                <br></br> <br></br>
-                <button ref="sub" className="btn btn-success" onClick={this.subscribeToNotification}>Subscribe</button>
-                <button id="unsub" className="btn btn-danger" onClick={this.unsubscribeToNotifcation}>Unsubscribe</button>
-            </div>
+            <Router>
+                <React.Fragment>
+                    <Switch>
+                        <Route exact path={"/"}
+                            render={(props) =>
+                                <React.Fragment>
+                                    <div id="front-wrapper">
+                                        <h1>Kindergarten App</h1>
+                                        <img src="~/imageslogo.jpg" alt="Kindergarten Logo" />
+                                        <a href="/news" ><button className="btn btn-primary center-block"> News </button></a>
+                                        <a href="/calendar"><button className="btn btn-primary center-block"> Calendar </button></a>
+                                    </div>
+                                    <div>
+                                        <h1>You are home!</h1>
+                                        <h3>Logged in as:{this.state.userEmail}</h3>
+                                        <button onClick={this.logout}>Logout</button>
+                                        <br></br> <br></br>
+                                        <button className="btn btn-success" onClick={this.subscribeToNotification}>Subscribe</button>
+                                        <button id="unsub" className="btn btn-danger" onClick={this.unsubscribeToNotifcation}>Unsubscribe</button>
+                                    </div>
+                                </React.Fragment>
+                            }
+                        />
+                        <Route exact path={"/News"}
+                            render={(props) =>
+                                <React.Fragment>
+                                    <News {...props} />
+                                </React.Fragment>}
+                        />
+
+                        <Route exact path={"/Calendar"}
+                            render={(props) =>
+                                <React.Fragment>
+                                    <Calendar {...props} />
+                                </React.Fragment>}
+
+                        />
+                    </Switch>
+                </React.Fragment>
+            </Router>
         )
     }
 }

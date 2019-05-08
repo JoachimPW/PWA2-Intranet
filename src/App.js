@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import News from "./components/News.js";
-import Calendar from "./components/Calendar.js"
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Login from './components/Login.js'
 import Home from './components/Home.js'
@@ -15,8 +13,6 @@ import './App.css';
 
 import fire from './config/Fire.js';
 
-
-
 class App extends Component {
 
   constructor(props) {
@@ -25,11 +21,8 @@ class App extends Component {
       HomeButtonNews: <button> NEWS </button>,
       HomeButtonCalendar: <button> Calendar </button>,
       user:{}
-    }
-    
+    }    
   }
-
- 
 
   componentDidMount(){
     this.authListener();
@@ -47,45 +40,11 @@ class App extends Component {
     })
   }
 
-
   render() {  
     return (
       <React.Fragment>
     {this.state.user ? (<Home />) : (<Login/>)}
-      </React.Fragment>
-      /*<Router>
-        <React.Fragment>
-          <Switch>
-            <Route exact path={"/"}
-
-              render={(props) =>
-
-                <div id="front-wrapper">
-                  <h1>Kindergarten App</h1>
-                  <img src="~/imageslogo.jpg" alt="Kindergarten Logo" />
-                  <a href="/news" ><button className="btn btn-primary center-block"> News </button></a>
-                  <a href="/calendar"><button className="btn btn-primary center-block"> Calendar </button></a>
-                </div>
-              }
-            />
-            <Route exact path={"/News"}
-              render={(props) =>
-                <React.Fragment>
-                  <News {...props} />
-                </React.Fragment>}
-
-            />
-
-            <Route exact path={"/Calendar"}
-              render={(props) =>
-                <React.Fragment>
-                  <Calendar {...props} />
-                </React.Fragment>}
-
-            />
-          </Switch>
-        </React.Fragment>
-      </Router> */
+      </React.Fragment>      
     );
   }
 }

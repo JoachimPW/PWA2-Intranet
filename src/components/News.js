@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import Modal from './modal.js';
-
+import Header from './Header';
 class News extends Component {
 
   render() {
     return (
       <React.Fragment>
         <div class="wrapper">
-
           <div id="content">
-            <button type="button" id="sidebarCollapse" class="btn main-background btn-toggle">
-              <i class="fas fa-align-left"></i>
-            </button>
+          
+            <Header></Header>
 
             <div class="container">
               <div class="col-lg-12">
@@ -28,8 +26,6 @@ class News extends Component {
                   <hr></hr>
                 </div>
               </article>
-
-
 
               <article>
                 <div class="col-lg-12">

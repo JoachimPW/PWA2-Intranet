@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Modal from './modal.js';
+import Header from './Header';
 
 export default class Calendar extends Component {
     constructor(props) {
@@ -48,10 +49,8 @@ export default class Calendar extends Component {
         this.setState({ brochure: tempBrochure });
     }
 
-
     render() {
         if (this.state.brochure.length > 0) {
-
             const brochure = this.state.brochure.map((item, index) => {
                 return (
                     <article>
@@ -68,7 +67,6 @@ export default class Calendar extends Component {
                             <hr></hr>
                         </div>
                     </article>
-
                 )
             });
 
@@ -77,17 +75,13 @@ export default class Calendar extends Component {
             return (
                 <div class="wrapper">
                     <div id="content">
-                        <button type="button" id="sidebarCollapse" class="btn main-background btn-toggle">
-                            <i class="fas fa-align-left"></i>
-                        </button>
-
+                    <Header></Header>
                         <div class="container">
                             <div class="col-lg-12">
                                 <h1>Calendar</h1>
                             </div>
                             {brochure}
                             <React.Fragment>
-
                                 <div className="overlay"></div>
                                 <div>
                                     <Modal

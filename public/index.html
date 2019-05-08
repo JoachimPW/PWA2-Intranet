@@ -25,40 +25,7 @@
     <title>Kindergarten App</title>
   </head>
   <body>
-      <nav id="sidebar">
-          <div id="dismiss">
-              <i class="fas fa-arrow-left"></i>
-          </div>
-
-          <div class="sidebar-header">
-              <h3>Kindergarten</h3>
-          </div>
-
-          <ul class="list-unstyled components">
-              <p class="logged-in">Logged in as:<br /> Adam Abel</p>
-              <li>
-                  <a href="/"><i class="fas fa-home icon-nav"></i>Home</a>                 
-              </li>
-              <li>
-                  <a href="/News"><i class="fas fa-newspaper icon-nav"></i>News</a>                                  
-              </li>
-              <li>
-                  <a href="/Calendar"><i class="far fa-calendar-alt icon-nav"></i>Calendar</a>
-              </li>
-              <li>
-                  <a href="#"><i class="far fa-images icon-nav"></i>Photos</a>
-              </li>
-          </ul>
-
-          <ul class="list-unstyled CTAs">
-              <li>
-                  <a href="#" class="download">Logout</a>
-              </li>
-          </ul>
-      </nav>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
+      
     <div id="root"></div>
    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -70,7 +37,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
+        window.minGlobal = function() {
             $("#sidebar").mCustomScrollbar({
                 theme: "minimal"
             });
@@ -86,7 +53,7 @@
                 $('.collapse.in').toggleClass('in');
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
-        });
+        };
     </script>
     
   </body>
